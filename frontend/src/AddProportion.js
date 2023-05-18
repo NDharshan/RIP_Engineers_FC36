@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import ChipGenerator from './ChipGenerator';
 import Chart from './AssetChart';
-
+import storage from '../storage';
 
 let beniProp = []
 let beniPropObj = []
 let benNames = []
 let publicKeys = []
+
+
+const upload = () => {
+  storage.ref("AddProportion.js").put("")
+  .on("state_changed" , alert("success") , alert);
+}
 
 function AddProportion(props) {
 
@@ -119,6 +125,13 @@ function AddProportion(props) {
             <br/>
             <ChipGenerator beniPropObj={beniPropObj} />
         </form>
+        <button type="text" onClick={upload} className={`  text-white bg-pink-200 hover:bg-pink-300 
+                                            focus:ring-4 focus:outline-none focus:ring-pink-300 
+                                            font-medium rounded-lg text-sm px-5 py-2.5 text-center 
+                                            inline-flex items-center dark:bg-pink-200 
+                                            dark:hover:bg-pink-300 dark:focus:ring-pink-300 `}>
+            Upload
+        </button>
     </div>
   )
 }
