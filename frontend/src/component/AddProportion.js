@@ -31,6 +31,7 @@ function AddProportion(props) {
       let data = JSON.stringify(publicKeys, null, 4);
       useEffect(() => {
         localStorage.setItem('items', data);
+        localStorage.setItem('benNames', benNames);
       }, [items]);
     
       localStorage.setItem('items', JSON.stringify(items));
