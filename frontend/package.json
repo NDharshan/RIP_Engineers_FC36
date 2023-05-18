@@ -20,6 +20,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "recharts": "^2.6.2",
+    "serve": "^14.2.0",
     "typescript": "*",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.9"
