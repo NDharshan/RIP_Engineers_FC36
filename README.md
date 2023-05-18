@@ -39,8 +39,7 @@ Running the Detection Code independently
 * Revocation: Claims by family
 
 # Solution 
-![ksit](https://github.com/sujan-reddy/Leagacy-Ledger/assets/98468801/d4cfac61-fe98-4143-ac87-fc87ccf1963b)
-![Screenshot 2023-05-05 033854](https://user-images.githubusercontent.com/95121530/236378641-539961d3-16d3-49ff-96bf-47760b548ee4.png)
+
 
 
 # Working and Features
