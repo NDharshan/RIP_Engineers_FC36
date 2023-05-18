@@ -15,6 +15,7 @@ function AddAsset() {
         let data = JSON.stringify(assetData, null, 4);
         useEffect(() => {
           localStorage.setItem('assets', data);
+          localStorage.setItem('assetClients', assetClients);
         }, [assets]);
       
         localStorage.setItem('assets', JSON.stringify(assets));

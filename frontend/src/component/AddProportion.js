@@ -81,7 +81,7 @@ function AddProportion(props) {
 
   return (
     <div>
-        <h2 className="mb-4 text-4xl font-bold leading-none tracking-tight text-gray-500 md:text-5xl lg:text-4xl dark:text-white" >Define Proportion</h2>
+        <h2 className="mb-4 text-4xl font-bold leading-none tracking-tight text-gray-500 md:text-5xl lg:text-4xl dark:text-white" >Proportion</h2>
         <form onSubmit={handleSubmit} >
             
         <label className="block mb-2 text-md font-medium text-gray-900 dark:text-white" >
