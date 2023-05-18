@@ -53,9 +53,6 @@ Balanced principle and concept of working of Will interpresentation
 
 
 # Snapshots of the Working Web Application
-![Screenshot 2023-05-05 100042](https://user-images.githubusercontent.com/95121530/236379285-ff3842b1-c110-49ff-8a77-296f2252481b.png)
-![Screenshot 2023-05-05 100059](https://user-images.githubusercontent.com/95121530/236379302-71bda13a-0a5d-4ff9-b651-de4c03b7ffa6.png)
-
 
 # Challenges we ran into and Acknowledgements
 * We faced issues in the interface of blockchain and the python application.
