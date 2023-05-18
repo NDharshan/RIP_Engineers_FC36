@@ -7,6 +7,8 @@ This project attempts to create a system which would bring in an order to the pr
 * Post the demise of a person, the transfer of the assets of the person are governed by the laws vested in the interpretation of one's will. The share of the financial and immovable assets received by each beneficiary too lies in therein.
 * During the decipher of the transfer one's crypto assets, when there is no centralized institution or body codifing the regulation here, How do we identify and regulate transfer ?
 
+![InheritanceChain](https://github.com/NDharshan/RIP_Engineers_FC36/assets/98468801/bce36099-1424-4c8e-bcfb-b7b256bd733c)
+
 
 # Technology Stack
 ## Web Application
