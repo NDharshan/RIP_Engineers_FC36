@@ -41,8 +41,7 @@ Running the Detection Code independently
 * Revocation: Claims by family
 
 # Solution 
-
-
+![snapshot-3](https://github.com/NDharshan/RIP_Engineers_FC36/assets/98468801/6a79ac74-9aea-4c71-b1ca-55d8a68d1e61)
 
 # Working and Features
 * **Time-lock** One can lock the assets for a certain period of time following which the resources are transferred. While still there he may modigy the running time in the contract
