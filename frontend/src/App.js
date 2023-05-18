@@ -1,38 +1,55 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import axios from 'axios'
+// srn
+import AddContent from './component/AddContent';
+import Chart from './component/AssetChart';
+import ProportionChart from './component/ProportionChart';
+import ProfilePicture from './images/pokemon.png';
 
 function App() {
-	// usestate for setting a javascript
-	// object for storing and using data
-	const [data, setdata] = useState({
-      name: "srn",
-      age: 0
-	});
+  return (
+    <div className='bg-pink-50'>
+      <div className="w-screen h-screen flex justify-center max-w-fit content-around items-center bg-rose-50 ">
+        {/* <Card>
+          <BaseForm />
+        </Card> */}
+        <AddContent />
+        <div className='py-12 px-12'>
+          <div className='flex flex-row space-around'>
+            <Chart className="w-full align-center  h-full md:h-auto md:w-3/5 xl:w-2/5"/>
+            <Chart className="w-full align-center  h-full md:h-auto md:w-3/5 xl:w-2/5"/>
+              
+          </div>
+          <ProportionChart className="w-full h-full md:h-auto md:w-3/5 xl:w-2/5"/>
+        </div>
+        <div className='py-12 px-12 bg-white flex flex-col'>
+          <div class="flex items-center space-x-10 py-2">
+          <img className="w-10 h-10 rounded-full" src={ProfilePicture} alt={"Carlie Anglemire"}/>
+              <div class="font-medium dark:text-white">
+                  <div>Jese Leos</div>
+                  <div class="text-md text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+              </div>
+          </div>
+          <br/>
+          <hr/>
+          <br/>
+          <div class="flex items-center space-x-10">
+          <img className="w-10 h-10 rounded-full" src={ProfilePicture} alt={"Carlie Anglemire"}/>
+              <div class="font-medium dark:text-white">
+                  <div>Jese Leos</div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+              </div>
+          </div>
 
-	useEffect(() => {
-      // Using fetch to fetch the api from 
-      // flask server it will be redirected to proxy
-      fetch("/").then((res) =>
-          res.json().then((data) => {
-              // Setting a data from api
-              setdata({
-                  name: data.name,
-                  age: data.age
-              });
-          })
-      );
-  }, []);
-
-	return (
-		<div className="App">
-			<header className="App-header">
-				<h1>React and flask</h1>
-				<p>{data.name}</p>
-        <p>{data.age}</p>
-			</header>
-		</div>
-	);
+          <div class="flex items-center space-x-10">
+          <img className="w-10 h-10 rounded-full" src={ProfilePicture} alt={"Carlie Anglemire"}/>
+              <div class="font-medium dark:text-white">
+                  <div>Jese Leos</div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  );
 }
 
 export default App;
