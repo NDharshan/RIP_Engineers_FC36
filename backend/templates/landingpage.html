@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <title>Hayavadana</title>
+<!--    <link rel="stylesheet" href="./assets/css/style.css">-->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 150;
+            text-decoration: none;
+            list-style: none;
+        }
+        ul{
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        label.logo{
+            line-height: 32px;
+            font-size: 26px;
+            padding: 32px 50px;
+            font-weight: bold;
+        }
+
+        label span{
+            font-weight: bold;
+            color: #7ec8b2;
+        }
+
+        nav{
+            display: flex;
+            width: 100%;
+            line-height: 80px;
+            padding: 5px 0;
+        }
+
+        nav ul{
+            text-align: right;
+            padding-right: 30px;
+            margin-left: 500px;
+        }
+
+        nav ul li{
+            display: inline-block;
+            margin: 3px 15px;
+        }
+
+        nav ul li a{
+            color:#000000;
+            position: relative;
+            padding: 10px 0px;
+        }
+
+        nav ul li button{
+            background: #7ec8b2;
+            border-radius: 5px;
+            border-style: none;
+            width: 90px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+
+        nav ul li button a{
+            color: white;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        section{
+            padding: 0 90px;
+        }
+
+        .landingpg .rowcon{
+            display: flex;
+        }
+
+        .landingpg .rowcon .img{
+            float: right;
+        }
+
+        .landingpg .rowcon .img img{
+            width: 600px;
+            height: 400px;
+            padding-right: 30px;
+        }
+
+        .landingpg .rowcon .content{
+            float: left;
+            padding-top: 75px;
+        }
+
+        .landingpg .rowcon .content span{
+            font-weight: 600;
+            padding-left: 10px;
+        }
+
+        .landingpg .rowcon .content h2{
+            color: #7ec8b2;
+            font-size: 40px;
+        }
+
+        .landingpg .rowcon .content p{
+            padding-right: 8rem;
+            font-size: 20px;
+        }
+
+        .landingpg .rowcon .content button{
+            margin-top: 20px;
+            width: 150px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .landingpg .rowcon .content button a{
+            font-size: 20px;
+        }
+
+        /*I have to revisit the shadow effect*/
+        .landingpg .rowcon .content #enr{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 1px 1px 5px #7ec8b2;
+        }
+
+        .landingpg .rowcon .content #enrl{
+            color: white;
+        }
+
+        .landingpg .rowcon .content #ex{
+            background-color: white;
+            border: 1px solid #7ec8b2;
+            margin-left: 20px;
+        }
+
+        .landingpg .rowcon .content #exp{
+            color: #7ec8b2;
+        }
+
+        .orientation h2{
+            font-weight: 800;
+            font-size: 30px;
+        }
+
+        .orientation h2 #stories{
+            font-weight: 800;
+            font-size: 30px;
+            background-color:rgb(231, 231, 231);
+        }
+
+        .orientation h2 sub{
+            font-size: 12px;
+        }
+
+        .orientation .orie{
+            display: flex;
+            padding-top: 50px;
+        }
+
+        .orientation .orie .orie-img{
+            float: left;
+        }
+
+        .orientation .orie .orie-img img{
+            width: 500px;
+            margin-right: 1px;
+        }
+
+        .orie-img{
+            position: relative;
+        }
+
+        .numberone{
+            position: absolute;
+            top: 15px;
+            right: 16px;
+            color: white;
+        }
+
+        .datesep{
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            color: #fff;
+        }
+
+        .orientation .orie .cont-story{
+            float: right;
+            padding-left: 100px;
+            padding-top: 50px;
+        }
+
+        .orientation .orie .cont-story h2{
+            font-weight: 800;
+        }
+
+        .orientation .orie .cont-story p{
+            font-size: 25px;
+            font-weight: 500;
+            padding-top: 30px;
+        }
+
+        .orientation .orie .cont-story button{
+            margin-top: 30px;
+            width: 150px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .orientation .orie .cont-story button a{
+            font-size: 20px;
+        }
+
+        .orientation .orie .cont-story #see-al{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .orientation .orie .cont-story #see-alb{
+            color: white;
+        }
+
+        .board .bord{
+            display: flex;
+            padding-top: 50px;
+        }
+
+        .board .bord .conte-story{
+            float: left;
+            padding-right: 100px;
+            padding-top: 50px;
+        }
+
+        .board .bord .conte-story h2{
+            font-weight: 800;
+        }
+
+        .board .bord .conte-story p{
+            font-size: 25px;
+            font-weight: 500;
+            padding-top: 30px;
+        }
+
+        .board .bord .conte-story button{
+            margin-top: 30px;
+            width: 180px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .board .bord .conte-story button a{
+            font-size: 20px;
+        }
+
+        .board .bord .conte-story #read-out{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .board .bord .conte-story #read{
+            color: white;
+        }
+
+        .board .bord .board-img{
+            float: right;
+        }
+
+        .board .bord .board-img img{
+            width: 500px;
+            margin-right: 1px;
+        }
+
+        .board-img{
+            position: relative;
+        }
+
+        .numbertwo{
+            position: absolute;
+            top: 15px;
+            left: 16px;
+            color: white;
+        }
+
+        .dateoct{
+            position: absolute;
+            bottom: 15px;
+            right: 16px;
+            color: #fff;
+        }
+
+        .graduation .gradua{
+            display: flex;
+            padding-top: 50px;
+        }
+
+        .graduation .gradua .grad-img{
+            float: left;
+        }
+
+        .graduation .gradua .grad-img img{
+            width: 500px;
+            margin-right: 1px;
+        }
+
+        .grad-img{
+            position: relative;
+        }
+
+        .numberthree{
+            position: absolute;
+            top: 15px;
+            right: 16px;
+            color: white;
+        }
+
+        .datejune{
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            color: #fff;
+        }
+
+        .graduation .gradua .conten-story{
+            float: right;
+            padding-left: 100px;
+            padding-top: 50px;
+        }
+
+        .graduation .gradua .conten-story h2{
+            font-weight: 800;
+        }
+
+        .graduation .gradua .conten-story p{
+            font-size: 25px;
+            font-weight: 500;
+            padding-top: 30px;
+        }
+
+        .graduation .gradua .conten-story button{
+            margin-top: 30px;
+            width: 150px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .graduation .gradua .conten-story button a{
+            font-size: 20px;
+        }
+
+        .graduation .gradua .conten-story #see-all{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .graduation .gradua .conten-story #see-albu{
+            color: white;
+        }
+
+        .techmentor{
+            padding-top: 50px;
+        }
+
+        .techmentor h2{
+            font-weight: 800;
+            font-size: 30px;
+        }
+
+        .techmentor h2 #span-story{
+            font-weight: 800;
+            font-size: 30px;
+            background-color:rgb(231, 231, 231);
+        }
+
+        .techmentor h2 span{
+            font-weight: 800
+        }
+        .techmentor h2 sup{
+            font-size: 12px;
+            padding-left: 10px;
+        }
+
+        .techmentor .techm{
+            display: flex;
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .techmentor .techm .techrose{
+            padding-right: 30px;
+        }
+
+        .techmentor .techm .techrose .imgrose img{
+            width: 250px;
+        }
+
+        .imgrose{
+            position: relative;
+        }
+
+        .rose{
+            position: absolute;
+            bottom: 20px;
+            left: 15px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .techmentor .techm .techrose .content-techrose{
+            padding-left: 10px;
+        }
+
+        .techmentor .techm .techrose .content-techrose h3{
+            color: #7ec8b2;
+            font-weight: 800;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .techmentor .techm .techrose .content-techrose p{
+            padding-bottom: 10px;
+            font-size: 14px;
+            padding-right: 30px;
+        }
+
+        .techmentor .techm .techrose .content-techrose button{
+            width: 130px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .techmentor .techm .techrose .content-techrose button a{
+            font-size: 14px;
+        }
+
+        .techmentor .techm .techrose .content-techrose #as{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .techmentor .techm .content-techrose #ask{
+            color: white;
+        }
+
+        .techmentor .techm .techalbo{
+            padding-right: 30px;
+        }
+
+        .techmentor .techm .techalbo .imgalbo img{
+            width: 250px;
+        }
+
+        .imgalbo{
+            position: relative;
+        }
+
+        .albert{
+            position: absolute;
+            bottom: 20px;
+            left: 15px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .techmentor .techm .techalbo .content-techalbo{
+            padding-left: 10px;
+        }
+
+        .techmentor .techm .techalbo .content-techalbo h3{
+            color: #7ec8b2;
+            font-weight: 800;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .techmentor .techm .techalbo .content-techalbo p{
+            padding-bottom: 10px;
+            font-size: 14px;
+            padding-right: 30px;
+        }
+
+        .techmentor .techm .techalbo .content-techalbo button{
+            width: 130px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .techmentor .techm .techalbo .content-techalbo button a{
+            font-size: 14px;
+        }
+
+        .techmentor .techm .techalbo .content-techalbo #askk{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .techmentor .techm .content-techalbo #aski{
+            color: white;
+        }
+
+
+        .techmentor .techm .techrapho{
+            padding-right: 30px;
+        }
+
+        .techmentor .techm .techrapho .imgrapho img{
+            width: 250px;
+        }
+
+        .imgrapho{
+            position: relative;
+        }
+
+        .raphael{
+            position: absolute;
+            bottom: 20px;
+            left: 15px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .techmentor .techm .techrapho .content-techrapho{
+            padding-left: 10px;
+        }
+
+        .techmentor .techm .techrapho .content-techrapho h3{
+            color: #7ec8b2;
+            font-weight: 800;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .techmentor .techm .techrapho .content-techrapho p{
+            padding-bottom: 10px;
+            font-size: 14px;
+            padding-right: 30px;
+        }
+
+        .techmentor .techm .techrapho .content-techrapho button{
+            width: 130px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .techmentor .techm .techrapho .content-techrapho button a{
+            font-size: 14px;
+        }
+
+        .techmentor .techm .techrapho .content-techrapho #asky{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .techmentor .techm .content-techrapho #askie{
+            color: white;
+        }
+
+        .techmentor .techm .techtia{
+            padding-right: 20px;
+        }
+
+        .techmentor .techm .techtia .imgtia img{
+            width: 250px;
+        }
+
+        .imgtia{
+            position: relative;
+        }
+
+        .christine{
+            position: absolute;
+            bottom: 20px;
+            left: 15px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .techmentor .techm .techtia .content-techtia{
+            padding-left: 10px;
+        }
+
+        .techmentor .techm .techtia .content-techtia h3{
+            color: #7ec8b2;
+            font-weight: 800;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .techmentor .techm .techtia .content-techtia p{
+            padding-bottom: 10px;
+            font-size: 14px;
+            padding-right: 30px;
+        }
+
+        .techmentor .techm .techtia .content-techtia button{
+            width: 130px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        .techmentor .techm .techtia .content-techtia button a{
+            font-size: 14px;
+        }
+
+        .techmentor .techm .techtia .content-techtia #aska{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .techmentor .techm .content-techtia #askia{
+            color: white;
+        }
+
+        .project h2{
+            font-weight: 800;
+            font-size: 30px;
+            padding-top: 50px;
+        }
+
+        .project h2 #back{
+            font-weight: 800;
+            font-size: 30px;
+            background-color:rgb(231, 231, 231);
+        }
+
+        .project h2 #norm-text{
+            font-size: 12px;
+            padding-left: 10px;
+        }
+
+        .project .projo{
+            display: flex;
+            padding-top: 90px;
+        }
+
+        .project .projo .contt-img{
+            float: right;
+        }
+
+        .project .projo .contt-img img{
+            width: 650px;
+            height: 325px;
+            padding-right: 30px;
+        }
+
+        .project .projo .contt-projo{
+            float: left;
+            padding-top: 20px;
+        }
+
+        .project .projo .contt-projo span{
+            font-weight: 600;
+        }
+
+        .project .projo .contt-projo h2{
+            color: #7ec8b2;
+            font-size: 40px;
+            font-weight: 500;
+            padding-top: 10px;
+        }
+
+        .project .projo .contt-projo p{
+            padding-top: 20px;
+            padding-right: 3rem;
+            font-size: 16px;
+        }
+
+        .project .projo .contt-projo button{
+            margin-top: 25px;
+            width: 150px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .project .projo .contt-projo button a{
+            font-size: 20px;
+        }
+
+        .project .projo .contt-projo #lear{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .project .projo .contt-projo #learn{
+            color: white;
+        }
+
+        .decision{
+            padding-top: 70px;
+        }
+
+        .decision h3{
+            font-size: 30px;
+            color: #7ec8b2;
+            /* padding-bottom: 1px; */
+        }
+
+        .decision p{
+            font-size: 25px;
+            padding-bottom: 30px;
+        }
+
+        .decision p button{
+            margin-top: 25px;
+            width: 90px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .decision p button a{
+            font-size: 19px;
+        }
+
+        .decision p #btn-enr{
+            background-color: #7ec8b2;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .decision p #a-enr{
+            color: white;
+        }
+
+        .decision p span{
+            font-size: 19px;
+            padding-left: 10px;
+        }
+
+        .decision p #contact{
+            font-size: 19px;
+            color: #7ec8b2;
+        }
+
+        footer{
+            padding: 50px;
+            background-color: aliceblue;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+    </head>
+    <body>
+
+
+
+
+
+        <nav>
+            <label class="logo"><span>What is thy Will ?</span> Finance tranfer for Digital assets </label>
+            <ul>
+                <li><a href="#form1">About</a></li>
+                <li><a href="#stories">Spread the Word</a></li>
+                <li><a href="#hd-stories">Features</a></li>
+            </ul>
+        </nav>
+
+        <section class="landingpg">
+            <div class="rowcon">
+                <div class="content">
+                    <span>Problem we solve</span>
+                    <h2>About us</h2>
+                    <p>
+                        Post the demise of a person, the transfer of the assets of the person are governed by the laws vested in the interpretation 
+                        of one's will. The share of the financial and immovable assets received by each beneficiary too lies in therein.
+                        During the decipher of the transfer one's crypto assets, when there is no centralized institution or body codifing 
+                        the regulation here, How do we identify and regulate transfer ?
+                        <br/>
+                        <h2>Working</h2>
+                        <p >
+                            <span style="font-weight: bold;">Time-lock</span> 	One can lock the assets for a certain period of time following which
+                             the resources are transferred. While still there he may modigy the running time in the contract
+                        </p>
+                        <p >
+                            <span style="font-weight: bold;">Key-lock</span> A two key system is used in the transfer of assets. The first key is 
+                            common among the benificiarires while alive; This prevent those apart from this list to access it. The second key is in 
+                            trusted source or contract determines the proportion of inheritance to be recieved
+                        </p>
+                        <p >
+                            <span style="font-weight: bold;">Key Features</span> A novel solution considering crypto- currencies <br/>Balanced principle and concept of working of Will interpresentation
+                        </p>
+
+
+                        <h2>Problems in traditional system</h2> <p ><span style="font-weight: bold;"> </span><p/>
+                            <div class="img" >
+                                <img src= "{{ url_for('static', filename='trad.png') }}" alt="">
+                            </div>
+
+                    </p>
+                </div>
+
+                <div class="img" >
+                    <img src= "{{ url_for('static', filename='flow.png') }}" alt="">
+                </div>
+            </div>
+        </section>
+
+
+            <section class="orientation">
+                <h2 class="h-stories"><span id="stories">Dist</span>ribution <sub>Cryptocurrency Assets</sub></h2>
+                <div class="orie">
+                    <div class="orie-img">
+
+                        <div id="my_dataviz"></div>
+                        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+                        <script>
+                        // set the dimensions and margins of the graph
+                        var width = 450
+                            height = 450
+                            margin = 40
+                        
+                        // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+                        var radius = Math.min(width, height) / 2 - margin
+                        
+                        // append the svg object to the div called 'my_dataviz'
+                        var svg = d3.select("#my_dataviz")
+                        .append("svg")
+                            .attr("width", width)
+                            .attr("height", height)
+                        .append("g")
+                            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+                        
+                        // Create dummy data
+                        // var data = {'Kamala Srinivas': 9, b: 20, c:30, d:8, e:12}
+                        var data = {{ data['assets']|safe }}
+                        
+                        // set the color scale
+                        var color = d3.scaleOrdinal()
+                        .domain(data)
+                        .range(d3.schemeSet2);
+                        
+                        // Compute the position of each group on the pie:
+                        var pie = d3.pie()
+                        .value(function(d) {return d.value; })
+                        var data_ready = pie(d3.entries(data))
+                        // Now I know that group A goes from 0 degrees to x degrees and so on.
+                        
+                        // shape helper to build arcs:
+                        var arcGenerator = d3.arc()
+                        .innerRadius(0)
+                        .outerRadius(radius)
+                        
+                        // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+                        svg
+                        .selectAll('mySlices')
+                        .data(data_ready)
+                        .enter()
+                        .append('path')
+                            .attr('d', arcGenerator)
+                            .attr('fill', function(d){ return(color(d.data.key)) })
+                            .attr("stroke", "black")
+                            .style("stroke-width", "2px")
+                            .style("opacity", 0.7)
+                        
+                        // Now add the annotation. Use the centroid method to get the best coordinates
+                        svg
+                        .selectAll('mySlices')
+                        .data(data_ready)
+                        .enter()
+                        .append('text')
+                        .text(function(d){ return d.data.key})
+                        .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
+                        .style("text-anchor", "middle")
+                        .style("font-size", 17)
+                        
+                        
+                        </script>
+                    </div>
+                
+                <div id="prop"></div>
+                    <script>
+                        // set the dimensions and margins of the graph
+                        var width = 450
+                            height = 450
+                            margin = 40
+                        
+                        // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+                        var radius = Math.min(width, height) / 2 - margin
+                        
+                        // append the svg object to the div called 'my_dataviz'
+                        var svg = d3.select("#prop")
+                        .append("svg")
+                            .attr("width", width)
+                            .attr("height", height)
+                        .append("g")
+                            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+                        
+                        // Create dummy data
+                        // var data = {'Kamala Srinivas': 9, b: 20, c:30, d:8, e:12}
+                        var data = {{ data['benProportion']|safe }}
+                        
+                        // set the color scale
+                        var color = d3.scaleOrdinal()
+                        .domain(data)
+                        .range(d3.schemeSet2);
+                        
+                        // Compute the position of each group on the pie:
+                        var pie = d3.pie()
+                        .value(function(d) {return d.value; })
+                        var data_ready = pie(d3.entries(data))
+                        // Now I know that group A goes from 0 degrees to x degrees and so on.
+                        
+                        // shape helper to build arcs:
+                        var arcGenerator = d3.arc()
+                        .innerRadius(0)
+                        .outerRadius(radius)
+                        
+                        // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+                        svg
+                        .selectAll('mySlices')
+                        .data(data_ready)
+                        .enter()
+                        .append('path')
+                            .attr('d', arcGenerator)
+                            .attr('fill', function(d){ return(color(d.data.key)) })
+                            .attr("stroke", "black")
+                            .style("stroke-width", "2px")
+                            .style("opacity", 0.7)
+                        
+                        // Now add the annotation. Use the centroid method to get the best coordinates
+                        svg
+                        .selectAll('mySlices')
+                        .data(data_ready)
+                        .enter()
+                        .append('text')
+                        .text(function(d){ return d.data.key})
+                        .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
+                        .style("text-anchor", "middle")
+                        .style("font-size", 17)
+                        
+                        
+                        </script>
+                    <div class="cont-story">
+                        <h2>Upload Contract</h2>
+                        <form action="/success"  method = "post" enctype="multipart/form-data">
+                            <input type="file" name="file" />
+                            <input class="board bord conte-story" style="background-color: #7ec8b2;
+                            border-radius: 5px;
+                            border: none;" type = "submit" value="Upload" id="read-out" >
+                        
+                        <!-- <button class="board bord conte-story" style="background-color: #7ec8b2;
+                                                                        border-radius: 5px;
+                                                                        border: none;"
+                                id="read-out" ><a href="/" id="learn" style="color: white;">Click</a></button> -->
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        <br>
+
+
+
+</body>
+</html>
+

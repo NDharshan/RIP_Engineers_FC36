@@ -1,0 +1,20 @@
+{
+    "name": "Kamala Srinivas",
+    "private": "0xc783fc399505957bcd5a5c3c1ec828545204d7938872de0846099d8a06557fe7",
+    "benificiary": "0x03415E524ECD508e9D425229820f50CcE3d4909c",
+    "assets": {
+        "etherum": 26,
+        "solona": 32,
+        "polygon": 56,
+        "matic": 72,
+        "dojima": 81
+    },
+    "benProportion" : {
+        "Keshav": 26,
+        "Padma": 32,
+        "Madhav": 56,
+        "Shraddha": 100,
+        "Dhruti": 81
+    },
+    "trax": "0a38d8429ad10e2a09a73e0d83c223ab114e979169ac790dc58e3c45-_-_-0xE11414eD40AE6bF7683cd69f8171088C48c0C2D6-_-_-4"
+}
