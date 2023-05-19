@@ -17,6 +17,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
+        body {
+            background:  url("{{ url_for('static', filename='bg.png') }}") 100% no-repeat;
+            background-attachment: scroll;
+            background-position: center center;
+            background-size: cover; 
+            background-color: #EDE7E2;
+        }        
+
         *{
             padding: 0;
             margin: 0;
@@ -45,7 +53,7 @@
 
         label span{
             font-weight: bold;
-            color: #7ec8b2;
+            color: #D4624E;
         }
 
         nav{
@@ -73,7 +81,7 @@
         }
 
         nav ul li button{
-            background: #7ec8b2;
+            background: #D4624E;
             border-radius: 5px;
             border-style: none;
             width: 90px;
@@ -116,7 +124,7 @@
         }
 
         .landingpg .rowcon .content h2{
-            color: #7ec8b2;
+            color: #D4624E;
             font-size: 40px;
         }
 
@@ -138,10 +146,10 @@
 
         /*I have to revisit the shadow effect*/
         .landingpg .rowcon .content #enr{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
-            box-shadow: 1px 1px 5px #7ec8b2;
+            box-shadow: 1px 1px 5px #D4624E;
         }
 
         .landingpg .rowcon .content #enrl{
@@ -150,12 +158,12 @@
 
         .landingpg .rowcon .content #ex{
             background-color: white;
-            border: 1px solid #7ec8b2;
+            border: 1px solid #D4624E;
             margin-left: 20px;
         }
 
         .landingpg .rowcon .content #exp{
-            color: #7ec8b2;
+            color: #D4624E;
         }
 
         .orientation h2{
@@ -233,7 +241,7 @@
         }
 
         .orientation .orie .cont-story #see-al{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
         }
@@ -275,7 +283,7 @@
         }
 
         .board .bord .conte-story #read-out{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
         }
@@ -371,7 +379,7 @@
         }
 
         .graduation .gradua .conten-story #see-all{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
         }
@@ -435,7 +443,7 @@
         }
 
         .techmentor .techm .techrose .content-techrose h3{
-            color: #7ec8b2;
+            color: #D4624E;
             font-weight: 800;
             padding-top: 5px;
             padding-bottom: 5px;
@@ -459,7 +467,7 @@
         }
 
         .techmentor .techm .techrose .content-techrose #as{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
         }
@@ -493,7 +501,7 @@
         }
 
         .techmentor .techm .techalbo .content-techalbo h3{
-            color: #7ec8b2;
+            color: #D4624E;
             font-weight: 800;
             padding-top: 5px;
             padding-bottom: 5px;
@@ -517,7 +525,7 @@
         }
 
         .techmentor .techm .techalbo .content-techalbo #askk{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
         }
@@ -552,7 +560,7 @@
         }
 
         .techmentor .techm .techrapho .content-techrapho h3{
-            color: #7ec8b2;
+            color: #D4624E;
             font-weight: 800;
             padding-top: 5px;
             padding-bottom: 5px;
@@ -576,7 +584,7 @@
         }
 
         .techmentor .techm .techrapho .content-techrapho #asky{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
         }
@@ -610,7 +618,7 @@
         }
 
         .techmentor .techm .techtia .content-techtia h3{
-            color: #7ec8b2;
+            color: #D4624E;
             font-weight: 800;
             padding-top: 5px;
             padding-bottom: 5px;
@@ -634,7 +642,7 @@
         }
 
         .techmentor .techm .techtia .content-techtia #aska{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
         }
@@ -685,7 +693,7 @@
         }
 
         .project .projo .contt-projo h2{
-            color: #7ec8b2;
+            color: #D4624E;
             font-size: 40px;
             font-weight: 500;
             padding-top: 10px;
@@ -709,7 +717,7 @@
         }
 
         .project .projo .contt-projo #lear{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
         }
@@ -724,7 +732,7 @@
 
         .decision h3{
             font-size: 30px;
-            color: #7ec8b2;
+            color: #D4624E;
             /* padding-bottom: 1px; */
         }
 
@@ -745,7 +753,7 @@
         }
 
         .decision p #btn-enr{
-            background-color: #7ec8b2;
+            background-color: #D4624E;
             border-radius: 5px;
             border: none;
         }
@@ -761,7 +769,7 @@
 
         .decision p #contact{
             font-size: 19px;
-            color: #7ec8b2;
+            color: #D4624E;
         }
 
         footer{
@@ -773,10 +781,6 @@
     </style>
     </head>
     <body>
-
-
-
-
 
         <nav>
             <label class="logo"><span>What is thy Will ?</span> Finance tranfer for Digital assets </label>
@@ -966,11 +970,11 @@
                         <h2>Upload Contract</h2>
                         <form action="/success"  method = "post" enctype="multipart/form-data">
                             <input type="file" name="file" />
-                            <input class="board bord conte-story" style="background-color: #7ec8b2;
+                            <input class="board bord conte-story" style="background-color: #D4624E;
                             border-radius: 5px;
                             border: none;" type = "submit" value="Upload" id="read-out" >
                         
-                        <!-- <button class="board bord conte-story" style="background-color: #7ec8b2;
+                        <!-- <button class="board bord conte-story" style="background-color: #D4624E;
                                                                         border-radius: 5px;
                                                                         border: none;"
                                 id="read-out" ><a href="/" id="learn" style="color: white;">Click</a></button> -->

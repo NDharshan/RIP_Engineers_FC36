@@ -1,7 +1,9 @@
 from flask import Flask, redirect, render_template, request, url_for
 from fileinput import filename
-# import yolo_opencv
+from flask_cors import CORS, cross_origin
+
 app = Flask(__name__)
+CORS(app, support_credentials=True)
 
 @app.route('/')
 def do_web3():
@@ -110,8 +112,7 @@ def success():
         f.save(f.filename)  
         return render_template("success.html", name = f.filename) 
 
-app.run(debug=True, host='0.0.0.0')
-
+app.run(debug=True, port=5000)
 
 #input is necessary
 # commit_transaction("fc1a7412919491585364733b8dfa1764478a9aa6b3ffb7d65885159a-_-_-0xDd69429b995E90A123bfC6bE9DB18d7e63CC1d98-_-_-10")

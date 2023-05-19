@@ -1,7 +1,7 @@
 {
     "name": "Kamala Srinivas",
-    "private": "0xc783fc399505957bcd5a5c3c1ec828545204d7938872de0846099d8a06557fe7",
-    "benificiary": "0x03415E524ECD508e9D425229820f50CcE3d4909c",
+    "private": "0xeb8554ed58d9c650afefe1cc289cc7a6601a48347e00b38a9f2ff0b3006dfa9d",
+    "benificiary": "0x9A208Ed032862AEFEc669198842838517E5d7525",
     "assets": {
         "etherum": 26,
         "solona": 32,
@@ -16,5 +16,5 @@
         "Shraddha": 100,
         "Dhruti": 81
     },
-    "trax": "0a38d8429ad10e2a09a73e0d83c223ab114e979169ac790dc58e3c45-_-_-0xE11414eD40AE6bF7683cd69f8171088C48c0C2D6-_-_-4"
+    "trax": "58d9c650afefe1cc289cc7a6601a48347e00b38a9f2ff0b3006dfa9d-_-_-0x9A208Ed032862AEFEc669198842838517E5d7525-_-_-4"
 }
